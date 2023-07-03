@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
+    "got-scraping": "^3.2.13",
     "jsdom": "22.1.0"
   }
 }

@@ -19,7 +19,7 @@ axios.get('https://www.jjfoodservice.com/search?b&page=0&q=nestle&size=12', para
         const $ = cheerio.load(response.data);
         
         // select all elements with class name "item"
-        const cereals = $(".Productstyle__Container-sc-1ssfvqo-0 ZNdqy");
+        const cereals = $(".SearchPagestyle__ResultsWrapper-sc-1c66j3i-8");
         
         console.log("connected")
         
@@ -33,9 +33,9 @@ axios.get('https://www.jjfoodservice.com/search?b&page=0&q=nestle&size=12', para
         // loop to get each product as it's own object
         for (const cereal of cereals) {
         	structuredData = {
-        		"Title": $(cereal).find(".Productstyle__Name-sc-1ssfvqo-9 gyYGTV").text().trim(),
-        		"Image URL": $(cereal).find(".Imagestyle__Img-sc-1o9v7pr-0 htdlBz").attr("data-src"),
-        		"Price": $(cereal).find(".Productstyle__PriceText-sc-1ssfvqo-33 fJbipF").text(),
+        		"Title": $(cereal).find("a.Productstyle__Name-sc-1ssfvqo-9").text().trim(),
+        		"Image URL": $(cereal).find("img.Imagestyle__Img-sc-1o9v7pr-0").attr("src"),
+        		"Price": $(cereal).find("div.Productstyle__PriceText-sc-1ssfvqo-33").text(),
         	};
         	
         // add products to the json file
